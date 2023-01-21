@@ -1,0 +1,20 @@
+what are the cahnges to do when implement a new project:
+
+1. change the yolov5.pt file, it is the detection model of yolo
+2. after you have to generate ckpt.t7 file, it is the deepsort model
+
+those are the changes other are remainig same 
+
+
+in yolov5, run detect_sort file not detect file
+both of those are same, but there is some small change in detect_sort file
+
+graph.py is helps to create bounding boxes and generate ids for bboxes
+
+python detect_sort.py --weights yolov5s.pt  --img 640  --source pedestrian.mp4 ---> 
+after run this command, it will predict video frame by frame(according to the volov5.pt model- it trained on person- coco dataset has person) and 
+regenerating the video in runs folder with tracking
+
+
+python detect_sort.py --weights yolov5s.pt  --img 640  --source 0  ---> this will track with ur live camera
+backend implemented with OpenCV, little bit slow, it capture frams second by second
